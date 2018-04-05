@@ -1,6 +1,6 @@
 package Assignment5;
 /* CRITTERS Critter3.java
- * EE422C Project 4 submission by
+ * EE422C Project 5 submission by
  * Nikhil Kanzarkar
  * nk8357
  * 15466
@@ -9,6 +9,8 @@ package Assignment5;
  * 15466
  * Spring 2018
  */
+
+import Assignment5.Critter.CritterShape;
 
 public class Critter3 extends Critter {
 	private boolean hasMoved= false;
@@ -26,7 +28,14 @@ public class Critter3 extends Critter {
 	 * Critter3's timestep involves running in an random direction from 0 to 7
 	 */
 	public void doTimeStep() {
-		run(getRandomInt(8));
+		int rand = getRandomInt(8);
+		String decison = look(rand,true);
+		if (decison.equals("")) {
+			run(rand);
+		}
+		else {
+			return;
+		}
 	}
 
 	@Override
@@ -40,6 +49,16 @@ public class Critter3 extends Critter {
 		return false;
 	}
 
+	public CritterShape viewShape()
+	{
+		return CritterShape.STAR;
+	}
+	
+	public javafx.scene.paint.Color viewFillColor() 
+	{ 
+		return javafx.scene.paint.Color.FUCHSIA;
+	}
+	
 	@Override
 	/**
 	 * The one character representation of this critter which is used to show where it is on the grid map when printed.

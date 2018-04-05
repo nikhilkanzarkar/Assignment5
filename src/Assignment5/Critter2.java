@@ -1,6 +1,6 @@
 package Assignment5;
 /* CRITTERS Critter2.java
- * EE422C Project 4 submission by
+ * EE422C Project 5 submission by
  * Nikhil Kanzarkar
  * nk8357
  * 15466
@@ -11,6 +11,8 @@ package Assignment5;
  */
 
 import static Assignment5.Params.*;
+
+import Assignment5.Critter.CritterShape;
 
 public class Critter2 extends Critter {
 
@@ -78,6 +80,16 @@ public class Critter2 extends Critter {
         }
 		
 	}
+	public CritterShape viewShape()
+	{
+		return CritterShape.DIAMOND;
+	}
+	
+	public javafx.scene.paint.Color viewOutlineColor()
+	{
+		return  javafx.scene.paint.Color.AQUAMARINE;
+	}
+	
 	
 	/**
 	 * The one character representation of this critter which is used to show where it is on the grid map when printed. 

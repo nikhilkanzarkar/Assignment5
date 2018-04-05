@@ -1,6 +1,6 @@
 package Assignment5;
 /* CRITTERS Critter4.java
- * EE422C Project 4 submission by
+ * EE422C Project 5 submission by
  * Nikhil Kanzarkar
  * nk8357
  * 15466
@@ -10,7 +10,10 @@ package Assignment5;
  * Spring 2018
  */
 
+import Assignment5.Critter.CritterShape;
 import Assignment5.Critter.TestCritter;
+import javafx.scene.paint.Color;
+
 import static Assignment5.Params.*;
 
 
@@ -61,6 +64,21 @@ public class Critter4 extends TestCritter {
 		
 	}
 
+	public CritterShape viewShape()
+	{
+		return CritterShape.SQUARE;
+	}
+
+	@Override
+	public Color viewFillColor() {
+		return Color.YELLOW;
+	}
+
+	public javafx.scene.paint.Color viewOutlineColor()
+	{
+		return  javafx.scene.paint.Color.ORANGE;
+	}
+	
 	@Override
 	/** 
 	 * Handles what the critter does when it has to fight. 
@@ -68,8 +86,15 @@ public class Critter4 extends TestCritter {
 	 * @return always false
 	 */
 	public boolean fight(String opponent) {
-		run(getRandomInt(8));
-		return false;
+		int rand = getRandomInt(8);
+		String decison = look(rand,true);
+		if (decison.equals("")) {
+			run(rand);
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 
 	@Override
